@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<script type="text/javascript" src="random123.js"></script>
+		<script>
+		     var secret = randomDigits();
+			alert(secret)
+		 function onButtonPress() {
+			 // alert(secret);
+             var userInput = document.getElementById("user_input").value; 
+             var cows = 0;
+			 var bulls = 0;
+
+            for (i = 0; i < userInput.length; i++) 
+			{
+				var currenDigit = userInput[i];
+				for( j = 0; j < 4; j++)
+				{
+					if (currenDigit == secret[j])
+					{
+						if(i==j)
+						{
+							bulls = bulls + 1 ;	
+						}else
+						{
+							cows++;
+						}
+						
+					}
+			
+			
+				}
+               
+			}
+			var h1Element = document.getElementById("results");
+			h1Element.innerHTML += "Для попытки:" + userInput + ".Коров : " + cows +".Быков:" + bulls + "<br>"
+			if (bulls == 4)
+				alert("you win");
+			
+		} 
+	
+		
+		</script>
+	</head>
+	<body>
+	    <h1>Отгадай четыре цифры!</h1>
+	    <input type="text" id="user_input">
+		<h1 id="results"></h1>
+        <button onclick="onButtonPress()">Try!</button>
+    
+	
+	</body>
+</html>
